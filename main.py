@@ -32,8 +32,8 @@ for img_path in files:
             angle = 0
             
         if img.height > img.width:
-                img.rotate(-90)
-                angle += 90
+                img.rotate(90)
+                angle -= 90
             
         scale = max(img.width, img.height) // LONG_EDGE + 1
         
