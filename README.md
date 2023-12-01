@@ -1,6 +1,12 @@
 # proofs
 python proof generator
 
+example input:
+![input imge](./source/DSC_4196_cropped.JPG)
+
+generated proof:
+![output proof](./dest/proof_DSC_4196_cropped.JPG)
+
 ## Setup
 - make sure you have a recent version of python (I wrote this using 3.10)
 - clone/download the repository
