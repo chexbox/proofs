@@ -21,14 +21,19 @@ for img_path in files:
             angle = {"6": 90, "8": -90, "3": 180, "5": 90, "7": -90, "4": 180 }.get(rotate[0], 0)
             flip = rotate in ["2", "4", "5", "7"]
             
+            if flip:
+                img.flop()
+                
+            img.rotate(angle)
+            angle = 0
+            
         except:
             print("can't rotate")
             angle = 0
-            flip = False
             
         if img.height > img.width:
-                img.rotate(90)
-                angle -= 90
+                img.rotate(-90)
+                angle += 90
             
         scale = max(img.width, img.height) // LONG_EDGE + 1
         
@@ -59,10 +64,7 @@ for img_path in files:
                     proof.composite(sample_img, left=MARGIN + sample * (MARGIN + sample_size), top=2 * MARGIN + scaled_height, operator='over')
                 
             proof.rotate(angle)
-            
-            if flip:
-                proof.flop()
-                
+                               
             proof.save(filename=DEST_DIR + "proof_" + img_path)
         
             
